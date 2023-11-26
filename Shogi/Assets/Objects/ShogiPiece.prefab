@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2322490812544466511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3830134629710920305}
+  - component: {fileID: 7259238860013409750}
+  - component: {fileID: 4026253246581736768}
+  m_Layer: 0
+  m_Name: ShogiPiece
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3830134629710920305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322490812544466511}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7441925, y: 0.3902659, z: -0.0070191966}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &7259238860013409750
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322490812544466511}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &4026253246581736768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322490812544466511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33dd65317a382674fb03b4c4d8da782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  movePlate: {fileID: 0}
+  bishop_white: {fileID: 21300000, guid: e50cd26f47a6536458e85decd15c154b, type: 3}
+  golden_general_white: {fileID: 21300000, guid: d24ea525dd6457b4f9f77e8d40afbe1b, type: 3}
+  king_white: {fileID: 21300000, guid: d4d66f6c3ee2d1d408718cbe908a10a4, type: 3}
+  knight_white: {fileID: 21300000, guid: 2f0910a7eb409d44992af5e4b796427d, type: 3}
+  pawn_white: {fileID: 21300000, guid: 1c569379285757045acedbe49fda05e9, type: 3}
+  rook_white: {fileID: 21300000, guid: 7e5b87e76f1c2a440b141b6692432c19, type: 3}
+  silver_general_white: {fileID: 21300000, guid: dfb346c9b45253d408c7bc871b061a47, type: 3}
+  spear_white: {fileID: 21300000, guid: 81975c60d9d1c4f4186b7ca0a97c674f, type: 3}
+  bishop_white_up: {fileID: 21300000, guid: 81367d75c52130343ba7823a5fc857dd, type: 3}
+  knight_white_up: {fileID: 21300000, guid: 8f10b3b5f08af494ba175baa48b7770c, type: 3}
+  pawn_white_up: {fileID: 21300000, guid: f48a61b0f4b35634d9f9fca76191d852, type: 3}
+  rook_white_up: {fileID: 21300000, guid: 0d7bd2798972cfe4cabaffca3c6e9142, type: 3}
+  silver_general_white_up: {fileID: 21300000, guid: 52d733040730d564c90a301d94acbf26, type: 3}
+  spear_white_up: {fileID: 21300000, guid: b33ea82080d15994aa0a1aa979116a30, type: 3}
+  bishop_black: {fileID: 21300000, guid: 0f505a7270f4f5a4e91061a2aee1925d, type: 3}
+  golden_general_black: {fileID: 21300000, guid: 3ab76794fb943f04698d1a2d1750ce70, type: 3}
+  king_black: {fileID: 21300000, guid: 8bb913f9f44c0cc46897895004db55e2, type: 3}
+  knight_black: {fileID: 21300000, guid: 757f51446b4f97249830cfa9c78de7e6, type: 3}
+  pawn_black: {fileID: 21300000, guid: 508e9e1fcee066f4b9e19402125eb86e, type: 3}
+  rook_black: {fileID: 21300000, guid: c01dc575b6e6b5f4b8b3f00b299e7bae, type: 3}
+  silver_general_black: {fileID: 21300000, guid: 1328308795f749444804b9418c3589c8, type: 3}
+  spear_black: {fileID: 21300000, guid: 7ffa420f0b4e9bd449ebc253260a963d, type: 3}
+  bishop_black_up: {fileID: 21300000, guid: dee30167a3f75674abee36a0c4d67f23, type: 3}
+  knight_black_up: {fileID: 21300000, guid: 503672f2be1781e4888fa1a0f151ef30, type: 3}
+  pawn_black_up: {fileID: 21300000, guid: 52af57e120b28ec4e8d30ce7c3fd799e, type: 3}
+  rook_black_up: {fileID: 21300000, guid: 4bde3d68024a88b4d912f27368515a61, type: 3}
+  silver_general_black_up: {fileID: 21300000, guid: 8e8b1471b7023e24ba0394897a35f88e, type: 3}
+  spear_black_up: {fileID: 21300000, guid: c854c4eaffbe9b54e8afdf346ccc7b94, type: 3}

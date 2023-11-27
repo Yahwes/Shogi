@@ -13,7 +13,7 @@ public class MovePlate : MonoBehaviour
     //false: move, true: attack
     public bool attack = false;
     
-    public vois Start()
+    public void Start()
     {
         if(attack)
         {
@@ -27,12 +27,12 @@ public class MovePlate : MonoBehaviour
 
         if(attack)
         {
-            GameObject sp = controller.GetComponent<Game>().GetPosition(matrixX, matrixY);
+            GameObject sp = controller.GetComponent<Game>().GetPositions(matrixX, matrixY);
 
             Destroy(sp);
         }
 
-        controller.GetComponent<Game>().SetPositionEmpty(reference.GetComponent<ShogiMan>().GetXBoard(), reference.GetComponent<ShogiMan>().GetYBoard());
+        controller.GetComponent<Game>().SetPositionNull(reference.GetComponent<ShogiMan>().GetXBoard(), reference.GetComponent<ShogiMan>().GetYBoard());
 
         reference.GetComponent<ShogiMan>().SetXBoard(matrixX);
         reference.GetComponent<ShogiMan>().SetYBoard(matrixY);
@@ -49,12 +49,12 @@ public class MovePlate : MonoBehaviour
         matrixY = y;
     }
 
-    public void SetReferense(GameObject obj)
+    public void SetReference(GameObject obj)
     {
         reference = obj;
     }
 
-    public GameObject GetReferense()
+    public GameObject GetReference()
     {
         return reference;
     }

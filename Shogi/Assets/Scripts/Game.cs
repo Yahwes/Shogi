@@ -59,7 +59,7 @@ public class Game : MonoBehaviour
 
     public void SetPositionNull(int x, int y)
     {
-        positions[x, y] = null
+        positions[x, y] = null;
     }
 
     public GameObject GetPositions(int x, int y)

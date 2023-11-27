@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3830134629710920305}
   - component: {fileID: 7259238860013409750}
   - component: {fileID: 4026253246581736768}
+  - component: {fileID: -8240421588947216737}
   m_Layer: 0
   m_Name: ShogiPiece
   m_TagString: Untagged
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  movePlate: {fileID: 0}
+  movePlate: {fileID: 2243092894583462477, guid: 72738460a4d6ac846a92ae845e2d5e24, type: 3}
   bishop_white: {fileID: 21300000, guid: e50cd26f47a6536458e85decd15c154b, type: 3}
   golden_general_white: {fileID: 21300000, guid: d24ea525dd6457b4f9f77e8d40afbe1b, type: 3}
   king_white: {fileID: 21300000, guid: d4d66f6c3ee2d1d408718cbe908a10a4, type: 3}
@@ -127,3 +128,29 @@ MonoBehaviour:
   rook_black_up: {fileID: 21300000, guid: 4bde3d68024a88b4d912f27368515a61, type: 3}
   silver_general_black_up: {fileID: 21300000, guid: 8e8b1471b7023e24ba0394897a35f88e, type: 3}
   spear_black_up: {fileID: 21300000, guid: c854c4eaffbe9b54e8afdf346ccc7b94, type: 3}
+--- !u!61 &-8240421588947216737
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322490812544466511}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2}
+  m_EdgeRadius: 0

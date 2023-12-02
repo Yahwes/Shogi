@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
+  reference: {fileID: 0}
   attack: 0
 --- !u!61 &2590560570791322727
 BoxCollider2D:

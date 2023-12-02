@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
@@ -16,6 +18,12 @@ public class Game : MonoBehaviour
 
     void Start()
     {
+        playerBlack = new GameObject[]
+          {       
+            Create("spear_black", 0, 8), Create("knight_black", 1, 8), Create("silver_general_black", 2, 8), Create("golden_general_black", 3, 8), Create("king_black", 4, 8), Create("golden_general_black", 5, 8), Create("silver_general_black", 6, 8),
+            Create("knight_black", 7, 8), Create("spear_black", 8, 8), Create("rook_black", 7, 7), Create("bishop_black", 1, 7), Create("pawn_black", 0, 6), Create("pawn_black", 1, 6), Create("pawn_black", 2, 6),
+            Create("pawn_black", 3, 6), Create("pawn_black", 4, 6), Create("pawn_black", 5, 6), Create("pawn_black", 6, 6), Create("pawn_black", 7, 6), Create("pawn_black", 8, 6)
+        };
         playerWhite = new GameObject[]
         {
             Create("spear_white", 0, 0), Create("knight_white", 1, 0), Create("silver_general_white", 2, 0), Create("golden_general_white", 3, 0), Create("king_white", 4, 0), Create("golden_general_white", 5, 0), Create("silver_general_white", 6, 0),
@@ -23,19 +31,11 @@ public class Game : MonoBehaviour
             Create("pawn_white", 3, 2), Create("pawn_white", 4, 2), Create("pawn_white", 5, 2), Create("pawn_white", 6, 2), Create("pawn_white", 7, 2), Create("pawn_white", 8, 2)
         };
 
-        playerBlack = new GameObject[]
-        {
-            Create("spear_black", 0, 8), Create("knight_black", 1, 8), Create("silver_general_black", 2, 8), Create("golden_general_black", 3, 8), Create("king_black", 4, 8), Create("golden_general_black", 5, 8), Create("silver_general_black", 6, 8),
-            Create("knight_black", 7, 8), Create("spear_black", 8, 8), Create("rook_black", 7, 7), Create("bishop_black", 1, 7), Create("pawn_black", 0, 6), Create("pawn_black", 1, 6), Create("pawn_black", 2, 6),
-            Create("pawn_black", 3, 6), Create("pawn_black", 4, 6), Create("pawn_black", 5, 6), Create("pawn_black", 6, 6), Create("pawn_black", 7, 6), Create("pawn_black", 8, 6)
-        };
-
         for (int i = 0; i < playerBlack.Length; i++)
         {
             SetPosition(playerBlack[i]);
-            SetPosition(playerBlack[i]);
+            SetPosition(playerWhite[i]);
         }
-
     }
 
     public GameObject Create(string name, int x, int y)
@@ -72,5 +72,40 @@ public class Game : MonoBehaviour
         if (x < 0 || y < 0 || x >= positions.GetLength(0) || y >= positions.GetLength(1))
             return false;
         return true;
+    }
+
+    public string GetCurrentPlayer()
+    {
+        return currentPlayer;
+    }
+
+    public bool IsGameOver()
+    {
+        return gameOver;
+    }
+
+    public void NextTurn()
+    {
+        if (currentPlayer == "white")
+            currentPlayer = "black";
+        else
+            currentPlayer = "white";
+    }
+
+    public void Update()
+    {
+        if(gameOver == true && Input.GetMouseButtonDown(0))
+        {
+            gameOver = false;
+            SceneManager.LoadScene("Shogi1");
+        }
+    }
+
+    public void Winner(string playerWinner)
+    {
+        gameOver = true;
+        GameObject.FindGameObjectWithTag("WinnerTag").GetComponent<Text>().enabled = true;
+        GameObject.FindGameObjectWithTag("WinnerTag").GetComponent<Text>().text = playerWinner + " is the winner";
+        GameObject.FindGameObjectWithTag("RestartTag").GetComponent<Text>().enabled = true;
     }
 }

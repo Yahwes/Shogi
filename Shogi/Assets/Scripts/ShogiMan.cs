@@ -20,6 +20,35 @@ public class ShogiMan : MonoBehaviour
     public Sprite bishop_black, golden_general_black, king_black, knight_black, pawn_black, rook_black, silver_general_black, spear_black;
     public Sprite bishop_black_up, knight_black_up, pawn_black_up, rook_black_up, silver_general_black_up, spear_black_up;
 
+    public void SetUpSprite(string name)
+    {
+        if (name == "bishop_white")
+            this.GetComponent<SpriteRenderer>().sprite = bishop_white_up;
+        if (name == "knight_white")
+            this.GetComponent<SpriteRenderer>().sprite = knight_white_up;
+        if (name == "pawn_white")
+            this.GetComponent<SpriteRenderer>().sprite = pawn_white_up;
+        if (name == "rook_white")
+            this.GetComponent<SpriteRenderer>().sprite = rook_white_up;
+        if (name == "silver_general_white")
+            this.GetComponent<SpriteRenderer>().sprite = silver_general_white_up;
+        if (name == "spear_white")
+            this.GetComponent<SpriteRenderer>().sprite = spear_white_up;
+
+        if (name == "bishop_black")
+            this.GetComponent<SpriteRenderer>().sprite = bishop_black_up;
+        if (name == "knight_black")
+            this.GetComponent<SpriteRenderer>().sprite = knight_black_up;
+        if (name == "pawn_black")
+            this.GetComponent<SpriteRenderer>().sprite = pawn_black_up;
+        if (name == "rook_black")
+            this.GetComponent<SpriteRenderer>().sprite = rook_black_up;
+        if (name == "silver_general_black")
+            this.GetComponent<SpriteRenderer>().sprite = silver_general_black_up;
+        if (name == "spear_black")
+            this.GetComponent<SpriteRenderer>().sprite = spear_black_up;
+    }
+
     public void Activate()
     {
         controller = GameObject.FindGameObjectWithTag("GameController");
@@ -39,11 +68,11 @@ public class ShogiMan : MonoBehaviour
             case "silver_general_white": this.GetComponent<SpriteRenderer>().sprite = silver_general_white; player = "white"; break;
             case "spear_white": this.GetComponent<SpriteRenderer>().sprite = spear_white; player = "white"; break;
 
-            case "bishop_white_up": this.GetComponent<SpriteRenderer>().sprite = bishop_white_up; break;
-            case "knight_white_up": this.GetComponent<SpriteRenderer>().sprite = knight_white_up; break;
-            case "pawn_white_up": this.GetComponent<SpriteRenderer>().sprite = pawn_white_up; break;
-            case "rook_white_up": this.GetComponent<SpriteRenderer>().sprite = rook_white_up; break;
-            case "silver_general_white_up": this.GetComponent<SpriteRenderer>().sprite = silver_general_white_up; break;
+            case "bishop_white_up": this.GetComponent<SpriteRenderer>().sprite = bishop_white_up; player = "white"; break;
+            case "knight_white_up": this.GetComponent<SpriteRenderer>().sprite = knight_white_up; player = "white"; break;
+            case "pawn_white_up": this.GetComponent<SpriteRenderer>().sprite = pawn_white_up; player = "white"; break;
+            case "rook_white_up": this.GetComponent<SpriteRenderer>().sprite = rook_white_up; player = "white"; break;
+            case "silver_general_white_up": this.GetComponent<SpriteRenderer>().sprite = silver_general_white_up; player = "white"; break;
             case "spear_white_up": this.GetComponent<SpriteRenderer>().sprite = spear_white_up; break;
 
             case "bishop_black": this.GetComponent<SpriteRenderer>().sprite = bishop_black; player = "black"; break;
@@ -55,12 +84,12 @@ public class ShogiMan : MonoBehaviour
             case "silver_general_black": this.GetComponent<SpriteRenderer>().sprite = silver_general_black; player = "black"; break;
             case "spear_black": this.GetComponent<SpriteRenderer>().sprite = spear_black; player = "black"; break;
 
-            case "bishop_black_up": this.GetComponent<SpriteRenderer>().sprite = bishop_black_up; break;
-            case "knight_black_up": this.GetComponent<SpriteRenderer>().sprite = knight_black_up; break;
-            case "pawn_black_up": this.GetComponent<SpriteRenderer>().sprite = pawn_black_up; break;
-            case "rook_black_up": this.GetComponent<SpriteRenderer>().sprite = rook_black_up; break;
-            case "silver_general_black_up": this.GetComponent<SpriteRenderer>().sprite = silver_general_black_up; break;
-            case "spear_black_up": this.GetComponent<SpriteRenderer>().sprite = spear_black_up; break;
+            case "bishop_black_up": this.GetComponent<SpriteRenderer>().sprite = bishop_black_up; player = "black"; break;
+            case "knight_black_up": this.GetComponent<SpriteRenderer>().sprite = knight_black_up; player = "black"; break;
+            case "pawn_black_up": this.GetComponent<SpriteRenderer>().sprite = pawn_black_up; player = "black"; break;
+            case "rook_black_up": this.GetComponent<SpriteRenderer>().sprite = rook_black_up; player = "black"; break;
+            case "silver_general_black_up": this.GetComponent<SpriteRenderer>().sprite = silver_general_black_up; player = "black"; break;
+            case "spear_black_up": this.GetComponent<SpriteRenderer>().sprite = spear_black_up; player = "black"; break;
         }
     }
 
@@ -97,10 +126,13 @@ public class ShogiMan : MonoBehaviour
 
     private void OnMouseUp()
     {
-        print("fff");
-        DestroyMovePlates();
+        if (!controller.GetComponent<Game>().IsGameOver() && controller.GetComponent<Game>().GetCurrentPlayer() == player)
+        {
+            DestroyMovePlates();
 
-        InitiateMovePlates();
+            InitiateMovePlates();
+
+        }
     }
 
     public void DestroyMovePlates()
@@ -133,20 +165,18 @@ public class ShogiMan : MonoBehaviour
                 LineMovePlate(1, -1);
                 break;
             case "golden_general_white":
-                PointMovePlate(xBoard + 1, yBoard + 1);
-                PointMovePlate(xBoard, yBoard + 1);
-                PointMovePlate(xBoard - 1, yBoard + 1);
-                PointMovePlate(xBoard + 1, yBoard);
-                PointMovePlate(xBoard - 1, yBoard);
-                PointMovePlate(xBoard, yBoard - 1);
+            case "pawn_white_up":
+            case "spear_white_up":
+            case "knight_white_up":
+            case "silver_general_white_up":
+                GoldenMovePlateWhite();
                 break;
             case "golden_general_black":
-                PointMovePlate(xBoard + 1, yBoard - 1);
-                PointMovePlate(xBoard, yBoard - 1);
-                PointMovePlate(xBoard - 1, yBoard - 1);
-                PointMovePlate(xBoard - 1, yBoard);
-                PointMovePlate(xBoard + 1, yBoard);
-                PointMovePlate(xBoard, yBoard + 1);
+            case "pawn_black_up":
+            case "spear_black_up":
+            case "knight_black_up":
+            case "silver_general_black_up":
+                GoldenMovePlateBlack();
                 break;
             case "silver_general_white":
                 PointMovePlate(xBoard + 1, yBoard + 1);
@@ -164,7 +194,7 @@ public class ShogiMan : MonoBehaviour
                 break;
             case "knight_white":
             case "knight_black":
-                LMovePlate();
+                TMovePlate();
                 break;
             case "spear_white":
                 LineMovePlate(0, 1);
@@ -178,7 +208,43 @@ public class ShogiMan : MonoBehaviour
             case "pawn_black":
                 PawnMovePlate(xBoard, yBoard - 1);
                 break;
+            case "bishop_white_up":
+            case "bishop_black_up":
+                LineMovePlate(1, 1);
+                LineMovePlate(-1, -1);
+                LineMovePlate(-1, 1);
+                LineMovePlate(1, -1);
+                SurronundMovePlates();
+                break;
+            case "rook_white_up":
+            case "rook_black_up":
+                LineMovePlate(0, 1);
+                LineMovePlate(1, 0);
+                LineMovePlate(-1, 0);
+                LineMovePlate(0, -1);
+                SurronundMovePlates();
+                break;
         }
+    }
+
+    public void GoldenMovePlateWhite()
+    {
+        PointMovePlate(xBoard + 1, yBoard + 1);
+        PointMovePlate(xBoard, yBoard + 1);
+        PointMovePlate(xBoard - 1, yBoard + 1);
+        PointMovePlate(xBoard + 1, yBoard);
+        PointMovePlate(xBoard - 1, yBoard);
+        PointMovePlate(xBoard, yBoard - 1);
+    }
+
+    public void GoldenMovePlateBlack()
+    {
+        PointMovePlate(xBoard + 1, yBoard - 1);
+        PointMovePlate(xBoard, yBoard - 1);
+        PointMovePlate(xBoard - 1, yBoard - 1);
+        PointMovePlate(xBoard - 1, yBoard);
+        PointMovePlate(xBoard + 1, yBoard);
+        PointMovePlate(xBoard, yBoard + 1);
     }
 
     public void LineMovePlate(int xIncrement, int yIncrement)
@@ -199,16 +265,10 @@ public class ShogiMan : MonoBehaviour
             MovePlateAttackSpawn(x, y);
     }
 
-    public void LMovePlate()
+    public void TMovePlate()
     {
         PointMovePlate(xBoard + 1, yBoard + 2);
-        PointMovePlate(xBoard + 1, yBoard - 2);
-        PointMovePlate(xBoard + 2, yBoard + 2);
-        PointMovePlate(xBoard + 2, yBoard - 2);
         PointMovePlate(xBoard - 1, yBoard + 2);
-        PointMovePlate(xBoard - 1, yBoard - 2);
-        PointMovePlate(xBoard - 2, yBoard + 1);
-        PointMovePlate(xBoard - 2, yBoard - 1);
     }
 
     public void SurronundMovePlates()
@@ -243,10 +303,8 @@ public class ShogiMan : MonoBehaviour
         {
             if (sc.GetPositions(x, y) == null)
                 MovePlateSpawn(x, y);
-            else if (sc.PositionOnBoard(x + 1, y) && sc.GetPositions(x+1, y) != null && sc.GetPositions(x + 1,y).GetComponent<ShogiMan>().player != player)
-                MovePlateAttackSpawn(x + 1, y);
-            else if (sc.PositionOnBoard(x - 1, y) && sc.GetPositions(x - 1, y) != null && sc.GetPositions(x - 1, y).GetComponent<ShogiMan>().player != player)
-                MovePlateAttackSpawn(x - 1, y);
+            if (sc.PositionOnBoard(x, y) && sc.GetPositions(x, y) != null && sc.GetPositions(x, y).GetComponent<ShogiMan>().player != player)
+                MovePlateAttackSpawn(x, y);
         }
     }
 
